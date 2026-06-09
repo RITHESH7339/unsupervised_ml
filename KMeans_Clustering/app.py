@@ -25,8 +25,8 @@ st.markdown("""
 .stApp {
     background: linear-gradient(
         135deg,
-        #f8fafc 0%,
-        #dbeafe 100%
+        #1a1a2e 0%,
+        #16213e 100%
     );
 }
 
@@ -35,25 +35,25 @@ st.markdown("""
     text-align:center;
     font-size:48px;
     font-weight:bold;
-    color:#2563eb;
+    color:#00d4ff;
 }
 
 .sub-title {
     text-align:center;
     font-size:18px;
-    color:#475569;
+    color:#b0b0b0;
     margin-bottom:20px;
 }
 
 /* Sidebar */
 [data-testid="stSidebar"] {
-    background-color:#eff6ff;
+    background-color:#16213e;
 }
 
 /* Metrics */
 [data-testid="metric-container"] {
-    background:white;
-    border:2px solid #bfdbfe;
+    background:#0f3460;
+    border:2px solid #00d4ff;
     padding:15px;
     border-radius:15px;
     box-shadow:0 2px 8px rgba(0,0,0,0.08);
@@ -61,7 +61,7 @@ st.markdown("""
 
 /* Dataframe */
 [data-testid="stDataFrame"] {
-    background:white;
+    background:#1a1a2e;
 }
 
 /* Tabs */
@@ -72,8 +72,8 @@ st.markdown("""
 
 /* Buttons */
 .stDownloadButton button {
-    background-color:#2563eb;
-    color:white;
+    background-color:#00d4ff;
+    color:#1a1a2e;
     border-radius:10px;
 }
 
@@ -233,7 +233,7 @@ with tab2:
     )
 
     fig.update_layout(
-        template="plotly_white",
+        template="plotly_dark",
         height=600
     )
 
@@ -291,7 +291,7 @@ with tab3:
         )
 
         pie.update_layout(
-            template="plotly_white"
+            template="plotly_dark"
         )
 
         st.plotly_chart(
@@ -311,7 +311,7 @@ with tab3:
         )
 
         bar.update_layout(
-            template="plotly_white"
+            template="plotly_dark"
         )
 
         st.plotly_chart(
