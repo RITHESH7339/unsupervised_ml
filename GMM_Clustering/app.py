@@ -25,8 +25,8 @@ st.markdown("""
 .stApp{
 background:linear-gradient(
 135deg,
-#f8fafc,
-#dbeafe
+#1a1a2e,
+#16213e
 );
 }
 
@@ -34,24 +34,24 @@ background:linear-gradient(
 text-align:center;
 font-size:48px;
 font-weight:bold;
-color:#2563eb;
+color:#00d4ff;
 }
 
 .sub-title{
 text-align:center;
 font-size:18px;
-color:#475569;
+color:#b0b0b0;
 }
 
 [data-testid="metric-container"]{
-background:white;
+background:#0f3460;
 border-radius:15px;
 padding:15px;
-border:2px solid #bfdbfe;
+border:2px solid #00d4ff;
 }
 
 [data-testid="stSidebar"]{
-background:#eff6ff;
+background:#16213e;
 }
 
 </style>
@@ -175,7 +175,7 @@ with tab2:
     )
 
     fig.update_layout(
-        template="plotly_white",
+        template="plotly_dark",
         height=600
     )
 
@@ -222,7 +222,7 @@ with tab3:
     )
 
     pie.update_layout(
-        template="plotly_white"
+        template="plotly_dark"
     )
 
     st.plotly_chart(
