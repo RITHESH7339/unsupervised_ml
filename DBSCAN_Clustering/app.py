@@ -24,10 +24,10 @@ st.markdown("""
 <style>
 
 .stApp{
-background:linear-gradient(
+background: linear-gradient(
 135deg,
-#f8fafc,
-#dbeafe
+#0f172a,
+#1e1b4b
 );
 }
 
@@ -35,24 +35,35 @@ background:linear-gradient(
 text-align:center;
 font-size:48px;
 font-weight:bold;
-color:#2563eb;
+color:#22d3ee;
 }
 
 .sub-title{
 text-align:center;
 font-size:18px;
-color:#475569;
+color:#cbd5e1;
 }
 
 [data-testid="metric-container"]{
-background:white;
+background:#1e293b;
 border-radius:15px;
 padding:15px;
-border:2px solid #bfdbfe;
+border:2px solid #22d3ee;
+box-shadow:0 0 15px rgba(34,211,238,0.3);
+transition:0.3s;
+}
+
+[data-testid="metric-container"]:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px #22d3ee;
 }
 
 [data-testid="stSidebar"]{
-background:#eff6ff;
+background:#111827;
+}
+
+h1,h2,h3,h4,h5,h6,p,label,span{
+color:white !important;
 }
 
 </style>
@@ -125,8 +136,7 @@ df["Cluster"] = labels
 # KPIs
 # ---------------------------------------
 
-cluster_count = len(set(labels))
-
+cluster_count = len(set(labels)) - (1 if -1 in labels else 0)
 noise_points = list(labels).count(-1)
 
 c1, c2, c3, c4 = st.columns(4)
@@ -180,13 +190,21 @@ with tab2:
         y=X[:,1],
         color=labels.astype(str),
         title="DBSCAN Cluster Visualization",
-        color_discrete_sequence=
-        px.colors.qualitative.Bold
+        color_discrete_sequence=[
+            "#22d3ee",
+            "#a855f7",
+            "#f43f5e",
+            "#10b981",
+            "#f59e0b"
+        ]
     )
 
     fig.update_layout(
-        template="plotly_white",
-        height=600
+        template="plotly_dark",
+        height=600,
+        paper_bgcolor="#0f172a",
+        plot_bgcolor="#0f172a",
+        font=dict(color="white")
     )
 
     st.plotly_chart(
@@ -215,12 +233,21 @@ with tab3:
         cluster_df,
         values="Count",
         names="Cluster",
-        hole=0.5,
-        title="Cluster Distribution"
+        hole=0.55,
+        title="Cluster Distribution",
+        color_discrete_sequence=[
+            "#22d3ee",
+            "#a855f7",
+            "#f43f5e",
+            "#10b981",
+            "#f59e0b"
+        ]
     )
 
     pie.update_layout(
-        template="plotly_white"
+        template="plotly_dark",
+        paper_bgcolor="#0f172a",
+        font=dict(color="white")
     )
 
     st.plotly_chart(
@@ -233,18 +260,27 @@ with tab3:
         x="Cluster",
         y="Count",
         color="Cluster",
-        title="Cluster Sizes"
+        title="Cluster Sizes",
+        color_discrete_sequence=[
+            "#22d3ee",
+            "#a855f7",
+            "#f43f5e",
+            "#10b981",
+            "#f59e0b"
+        ]
     )
 
     bar.update_layout(
-        template="plotly_white"
+        template="plotly_dark",
+        paper_bgcolor="#0f172a",
+        plot_bgcolor="#0f172a",
+        font=dict(color="white")
     )
 
     st.plotly_chart(
         bar,
         use_container_width=True
     )
-
 # ---------------------------------------
 # EXPORT
 # ---------------------------------------
